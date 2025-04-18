@@ -52,9 +52,9 @@
 
 .farming-item-content {
   position: absolute;
-  top: 5px;
-  left: 100px;
-  right: 20px;
+  top: 20px;
+  left: 140px;
+  right: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -66,6 +66,7 @@
 }
 
 .farming-label {
+  margin-top: 4px;
   color: #02acf3;
   font-size: 12px;
 }

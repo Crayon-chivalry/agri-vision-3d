@@ -20,5 +20,6 @@ defineProps({
   background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
+  font-size: 21px;
 }
 </style>

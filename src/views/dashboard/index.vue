@@ -12,7 +12,7 @@ import RiceData from './components/RiceData.vue'
     <!-- 顶部 -->
     <div class="header">
       <img src="@/assets/images/header.png" class="header-image" />
-      <div class="header-title">xx农业大数据监控中心</div>
+      <div class="header-title">农业大数据监控中心</div>
     </div>
 
     <!-- 主要区域容器 -->
@@ -56,7 +56,8 @@ import RiceData from './components/RiceData.vue'
   width: 100%;
   text-align: center;
   font-weight: bold;
-  font-size: 24px;
+  color: #fff;
+  font-size: 28px;
 }
 
 .header-image {
@@ -64,6 +65,7 @@ import RiceData from './components/RiceData.vue'
 }
 
 .footer-image {
+  display: block;
   width: 100%;
 }
 

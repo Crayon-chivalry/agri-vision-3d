@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import './utils/remAdaptor.js'
 import 'normalize.css';
 
 import TitleSection from '@/components/TitleSection.vue'
