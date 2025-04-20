@@ -9,17 +9,17 @@
     <div class="plant-row">
       <div class="plant-item">
         <img src="@/assets/images/category.png" class="plant-image" />
-        <div class="plant-count">1480/种</div>
+        <div class="plant-count">1480<span>/种</span></div>
         <div class="plant-title">种植品类数</div>
       </div>
       <div class="plant-item">
         <img src="@/assets/images/production.png" class="plant-image" />
-        <div class="plant-count">1480kg/亩</div>
+        <div class="plant-count">1480kg<span>/亩</span></div>
         <div class="plant-title">亩均产量</div>
       </div>
       <div class="plant-item">
         <img src="@/assets/images/area.png" class="plant-image" />
-        <div class="plant-count">1480亩/块</div>
+        <div class="plant-count">1480亩<span>/块</span></div>
         <div class="plant-title">地块平均面积</div>
       </div>
     </div>
@@ -43,6 +43,7 @@
 }
 
 .plant-title {
+  margin-top: 6px;
   color: #b5c2e4;
   font-size: 14px;
 }
@@ -50,6 +51,14 @@
 .plant-count {
   font-size: 21px;
   font-weight: bold;
-  color: #b5c2e4;
+  background: linear-gradient(to bottom, #fff 0%, #2a90b9 100%);
+  color: transparent;
+  text-shadow: 0 0 10px rgba(94, 231, 255, 0.3);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.plant-count span {
+  font-size: 12px;
 }
 </style>

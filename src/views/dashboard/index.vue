@@ -5,6 +5,7 @@ import FarmingData from './components/FarmingData.vue'
 import PlantData from './components/PlantData.vue'
 import LandParcelData from './components/LandParcelData.vue'
 import RiceData from './components/RiceData.vue'
+import MainData from './components/MainData.vue'
 </script>
 
 <template>
@@ -22,7 +23,9 @@ import RiceData from './components/RiceData.vue'
         <soil-data class="aside-item" />
         <farming-data class="aside-item" />
       </div>
-      <div class="main"></div>
+      <div class="main">
+        <main-data />
+      </div>
       <div class="aside">
         <plant-data class="aside-item" />
         <land-parcel-data class="aside-item" />
@@ -87,7 +90,7 @@ import RiceData from './components/RiceData.vue'
   gap: 20px;
 }
 
-.aside-item {
+/* .aside-item {
   flex: 1;
-}
+} */
 </style>

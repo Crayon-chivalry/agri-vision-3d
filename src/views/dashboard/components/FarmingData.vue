@@ -13,7 +13,7 @@
             <div class="farming-title">农资数据</div>
             <div class="farming-label">亩均施肥量</div>
           </div>
-          <div class="farming-count">1480kg/亩</div>
+          <div class="farming-count">1480<span>kg/亩</span></div>
         </div>
       </div>
       <div class="farming-item">
@@ -23,7 +23,7 @@
             <div class="farming-title">农事进展</div>
             <div class="farming-label">农事操作数量</div>
           </div>
-          <div class="farming-count">1480/个</div>
+          <div class="farming-count">1480<span>/个</span></div>
         </div>
       </div>
       <div class="farming-item">
@@ -33,7 +33,7 @@
             <div class="farming-title">数字农场</div>
             <div class="farming-label">生产计划数量</div>
           </div>
-          <div class="farming-count">1480/个</div>
+          <div class="farming-count">1480<span>/个</span></div>
         </div>
       </div>
     </div>
@@ -47,14 +47,14 @@
 }
 
 .farming-image {
-  width: 100%;
+  width: 90%;
 }
 
 .farming-item-content {
   position: absolute;
   top: 20px;
   left: 140px;
-  right: 40px;
+  right: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -75,5 +75,9 @@
   color: #00c5ff;
   font-size: 16px;
   font-weight: bold;
+}
+
+.farming-count span {
+  font-size: 12px;
 }
 </style>
