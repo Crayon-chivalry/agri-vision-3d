@@ -2,8 +2,10 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import * as echarts from "echarts";
+import "echarts-gl"; // 引入 echarts-gl
 
 import nanning from "@/assets/json/nanning.json";
+import mapBg from '@/assets/images/map-bg.png';
 
 const chartRef = ref(null);
 let chartInstance = null;
@@ -12,34 +14,75 @@ const initChart = () => {
   chartInstance = echarts.init(chartRef.value);
   echarts.registerMap('nanning', nanning);
   const option = {
-    // 地图背景色
     backgroundColor: 'transparent',
-    // 地图配置
-    geo: {
+    geo3D: {
       map: 'nanning',
-      roam: false, // 不允许缩放和平移
-      // zoom: 1.2, // 缩放级别
-      label: {
-        show: true,
-        color: '#fff',
-        fontSize: 12
+      roam: false,
+      top: '-5%',
+      boxHeight: 40, // 3D地图的高度
+      regionHeight: 5, // 区域高度
+      shading: 'realistic',
+      // 背景图
+      realisticMaterial: {
+        detailTexture: mapBg, // 图片路径或 Base64
+        textureTiling: 1,
+        roughness: 0.8
       },
       itemStyle: {
-        areaColor: '#0c3e5f', // 地图区域颜色
-        borderColor: '#4befff', // 边界颜色
+        // color: '#004b75',
+        opacity: 0.8,
         borderWidth: 1.5,
-        shadowColor: 'rgba(75,239,255,0.3)',
-        shadowBlur: 10
+        borderColor: '#1a9bfb'
+      },
+      label: {
+        show: true,
+        color: '#fff',      
+        fontSize: 14,
+        // backgroundColor: 'rgba(0,0,0,0.5)',
+        padding: [5, 8],    
+        borderRadius: 3
       },
       emphasis: {
         itemStyle: {
-          areaColor: '#4977c3', // 鼠标悬浮时的颜色
-          shadowColor: 'rgba(75,239,255,0.5)',
-          shadowBlur: 20
+          color: '#4977c3',
+          opacity: 1
         }
+      },
+      viewControl: {
+        // 视角控制
+        distance: 115,      // 调整到合适的缩放距离
+        alpha: 35,          // 左右旋转度（水平视角）
+        beta: 20,           // 略微俯视角度
+        center: [0, 0, 0],  // 中心点居中
+        autoRotate: false,   // 关闭自动旋转
+
+        // 禁用所有交互操作
+        rotateSensitivity: 0,  // 禁止拖拽旋转
+        zoomSensitivity: 0,    // 禁止鼠标滚轮缩放
+        panSensitivity: 0,     // 禁止平移
+        damping: 0
+      },
+      light: {  // 光照配置
+        main: {
+          intensity: 1.2,
+          shadow: true
+        },
+        ambient: {
+          intensity: 0.3
+        }
+      },
+      postEffect: {  // 后期效果
+        enable: true,
+        bloom: {
+          enable: true,
+          intensity: 0.1
+        }
+      },
+      temporalSuperSampling: {
+        enable: true
       }
     },
-    series: [] // 如果需要在地图上添加散点等数据可以在这里配置
+    series: []
   };
   chartInstance.setOption(option);
 }
