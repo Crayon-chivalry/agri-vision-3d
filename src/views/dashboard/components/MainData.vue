@@ -15,74 +15,88 @@ const initChart = () => {
   echarts.registerMap('nanning', nanning);
   const option = {
     backgroundColor: 'transparent',
-    geo3D: {
+    // 提示组件
+    tooltip: {
+      show: true,
+      trigger: "item",
+      formatter: function (params) {
+        if (params.componentSubType === 'map3D') {
+          return `<div style="padding: 5px">
+          <div style="font-size: 16px;color:#fff">${params.name}</div>
+          <div style="color:#fff">种植面积：${(params.value || 0).toFixed(0)}亩</div>
+        </div>`;
+        }
+        return '';
+      },
+      backgroundColor: 'rgba(0,0,0,0.75)',
+      borderColor: '#1a9bfb',
+      borderWidth: 1,
+      textStyle: {
+        color: '#fff'
+      }
+    },
+    series: [{
+      type: 'map3D',
       map: 'nanning',
       roam: false,
-      top: '-5%',
-      boxHeight: 40, // 3D地图的高度
-      regionHeight: 5, // 区域高度
-      shading: 'realistic',
-      // 背景图
+      top: '-10%',
+      boxHeight: 40,    // 3D地图的高度
+      regionHeight: 5,  // 区域块的高度
+      // 地图材质相关配置
+      shading: 'realistic',  // 真实感渲染
       realisticMaterial: {
-        detailTexture: mapBg, // 图片路径或 Base64
-        textureTiling: 1,
-        roughness: 0.8
+        detailTexture: mapBg,    // 区域纹理贴图
+        textureTiling: 1,        // 纹理平铺度
+        roughness: 0.8           // 材质粗糙度
       },
+      // 区域样式配置
       itemStyle: {
-        // color: '#004b75',
         opacity: 0.8,
         borderWidth: 1.5,
         borderColor: '#1a9bfb'
       },
+      // 标签文字配置
       label: {
         show: true,
-        color: '#fff',      
+        color: '#fff',
         fontSize: 14,
-        // backgroundColor: 'rgba(0,0,0,0.5)',
-        padding: [5, 8],    
+        padding: [5, 8],
         borderRadius: 3
       },
+      // 鼠标悬停强调效果
       emphasis: {
         itemStyle: {
           color: '#4977c3',
           opacity: 1
         }
       },
+      // 视角控制配置
       viewControl: {
-        // 视角控制
-        distance: 115,      // 调整到合适的缩放距离
-        alpha: 35,          // 左右旋转度（水平视角）
-        beta: 20,           // 略微俯视角度
-        center: [0, 0, 0],  // 中心点居中
-        autoRotate: false,   // 关闭自动旋转
-
-        // 禁用所有交互操作
-        rotateSensitivity: 0,  // 禁止拖拽旋转
-        zoomSensitivity: 0,    // 禁止鼠标滚轮缩放
-        panSensitivity: 0,     // 禁止平移
-        damping: 0
+        distance: 115,         // 视角距离
+        alpha: 35,            // 视角垂直角度
+        beta: -20,            // 视角水平角度
+        center: [0, 0, 0],    // 视角中心点
+        autoRotate: false,    // 禁用自动旋转
+        rotateSensitivity: 0, // 禁用旋转
+        zoomSensitivity: 0,   // 禁用缩放
+        panSensitivity: 0,    // 禁用平移
+        damping: 0            // 惯性阻尼
       },
-      light: {  // 光照配置
+      light: {
         main: {
-          intensity: 1.2,
-          shadow: true
+          intensity: 1.2,   // 主光源强度
+          shadow: true      // 启用阴影
         },
         ambient: {
-          intensity: 0.3
+          intensity: 0.3    // 环境光强度
         }
       },
-      postEffect: {  // 后期效果
-        enable: true,
-        bloom: {
-          enable: true,
-          intensity: 0.1
-        }
-      },
-      temporalSuperSampling: {
-        enable: true
-      }
-    },
-    series: []
+      // 地图数据配置
+      data: nanning.features.map(feature => ({
+        name: feature.properties.name,
+        value: Math.floor(Math.random() * 10000) // 随机数据值
+      }))
+    }]
   };
   chartInstance.setOption(option);
 }
