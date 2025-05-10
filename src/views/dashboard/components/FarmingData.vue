@@ -43,18 +43,21 @@
 <style scoped>
 .farming-item {
   position: relative;
-  margin-top: 10px;
+}
+
+.farming-item:first-child {
+  margin: 10px;
 }
 
 .farming-image {
-  width: 90%;
+  width: 85%;
 }
 
 .farming-item-content {
   position: absolute;
-  top: 20px;
-  left: 140px;
-  right: 70px;
+  top: 15px;
+  left: 120px;
+  right: 90px;
   display: flex;
   align-items: center;
   justify-content: space-between;

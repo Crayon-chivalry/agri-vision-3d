@@ -38,7 +38,7 @@
 }
 
 .metrics-image {
-  width: 60%;
+  width: 50%;
 }
 
 .metrics-title {
@@ -47,7 +47,7 @@
 }
 
 .metrics-count {
-  font-size: 21px;
+  font-size: 18px;
   font-weight: bold;
   color: #b5c2e4;
 }
