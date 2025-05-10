@@ -16,7 +16,7 @@ import MainData from "./components/MainData.vue";
       <!-- 顶部 -->
       <div class="header">
         <img src="@/assets/images/header.png" class="header-image" />
-        <div class="header-title">南宁市农业大数据监控中心</div>
+        <div class="header-title">农业大数据监控中心</div>
       </div>
 
       <!-- 主要区域容器 -->
