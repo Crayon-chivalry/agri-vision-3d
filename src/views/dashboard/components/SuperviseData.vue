@@ -1,5 +1,7 @@
 <!-- 监管指标 -->
-<script setup></script>
+<script setup>
+import CountUp from 'vue-countup-v3'
+</script>
 
 <template>
   <div class="metrics">
@@ -9,17 +11,23 @@
       <div class="metrics-item">
         <div class="metrics-title">监管指标数</div>
         <img src="@/assets/images/supervise.png" class="metrics-image" />
-        <div class="metrics-count">65</div>
+        <div class="metrics-count">
+          <count-up :end-val="2000"></count-up>
+        </div>
       </div>
       <div class="metrics-item">
         <div class="metrics-title">运行指标数</div>
         <img src="@/assets/images/run.png" class="metrics-image" />
-        <div class="metrics-count">35</div>
+        <div class="metrics-count">
+          <count-up :end-val="1350"></count-up>
+        </div>
       </div>
       <div class="metrics-item">
         <div class="metrics-title">异常指标数</div>
         <img src="@/assets/images/abnormal.png" class="metrics-image" />
-        <div class="metrics-count">30</div>
+        <div class="metrics-count">
+          <count-up :end-val="35"></count-up>
+        </div>
       </div>
     </div>
   </div>
@@ -38,7 +46,7 @@
 }
 
 .metrics-image {
-  width: 50%;
+  width: 60%;
 }
 
 .metrics-title {

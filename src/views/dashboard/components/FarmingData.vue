@@ -1,5 +1,7 @@
 <!-- 农事管理 -->
-<script setup></script>
+<script setup>
+import CountUp from 'vue-countup-v3'
+</script>
 
 <template>
   <div class="farming">
@@ -13,7 +15,10 @@
             <div class="farming-title">农资数据</div>
             <div class="farming-label">亩均施肥量</div>
           </div>
-          <div class="farming-count">1480<span>kg/亩</span></div>
+          <div class="farming-count">
+            <count-up :end-val="1480"></count-up>
+            <span>kg/亩</span>
+          </div>
         </div>
       </div>
       <div class="farming-item">
@@ -23,7 +28,10 @@
             <div class="farming-title">农事进展</div>
             <div class="farming-label">农事操作数量</div>
           </div>
-          <div class="farming-count">1480<span>/个</span></div>
+          <div class="farming-count">
+            <count-up :end-val="1480"></count-up>
+            <span>/个</span>
+          </div>
         </div>
       </div>
       <div class="farming-item">
@@ -33,7 +41,10 @@
             <div class="farming-title">数字农场</div>
             <div class="farming-label">生产计划数量</div>
           </div>
-          <div class="farming-count">1480<span>/个</span></div>
+          <div class="farming-count">
+            <count-up :end-val="1480"></count-up>
+            <span>/个</span>
+          </div>
         </div>
       </div>
     </div>
@@ -42,15 +53,16 @@
 
 <style scoped>
 .farming-item {
+  margin-bottom: 10px;
   position: relative;
 }
 
 .farming-item:first-child {
-  margin: 10px;
+  margin-top: 15px;
 }
 
 .farming-image {
-  width: 85%;
+  width: 90%;
 }
 
 .farming-item-content {
@@ -75,6 +87,9 @@
 }
 
 .farming-count {
+  display: flex;
+  align-items: center;
+  gap: 2px;
   color: #00c5ff;
   font-size: 16px;
   font-weight: bold;
