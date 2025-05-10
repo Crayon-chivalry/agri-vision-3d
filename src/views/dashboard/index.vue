@@ -11,7 +11,7 @@ import MainData from "./components/MainData.vue";
 </script>
 
 <template>
-  <v-scale-screen width="1920" height="1080">
+  <v-scale-screen width="1920" height="1080" :boxStyle="{backgroundColor: '#000515'}">
     <div class="dashboard">
       <!-- 顶部 -->
       <div class="header">
